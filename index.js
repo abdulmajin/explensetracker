@@ -264,14 +264,6 @@ function mysortZtoA() {
   }
 }
 
-function checkExistingitem() {
-  const inputexExpense = document.getElementById("expenseNameEl").value;
-
-  loadExpenseDB();
-  const findexpendExist = expense.find((item) => item.item === inputexExpense);
-  return findexpendExist;
-}
-
 function updateLocalStoraage() {
   localStorage.setItem("expense", JSON.stringify(expense));
 }
@@ -281,13 +273,19 @@ addBtnExpenseEl.addEventListener("click", () => {
   const inputedAmount = document.getElementById("expenseAmouneEl").value;
   const expenseDateEl = document.getElementById("expenseDateEl");
   const selectedDate = expenseDateEl.value;
+  loadExpenseDB();
+
   const newItem = {
     item: inputexExpense,
     amount: inputedAmount,
     date: selectedDate,
   };
   if (inputedAmount && inputexExpense && selectedDate) {
-    if (checkExistingitem) {
+    const findexpendExist = expense.find(
+      (item) => item.item === inputexExpense
+    );
+
+    if (findexpendExist) {
       alert(`${inputexExpense}  is already exist`);
     } else {
       expense.push(newItem);

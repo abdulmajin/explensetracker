@@ -6,9 +6,13 @@
   "scripts": {
     "start": "serve"
   },
-  "keywords": ["html", "css", "javascript"],
+  "keywords": [
+    "html",
+    "css",
+    "javascript"
+  ],
   "author": "Majeedex",
-  "license": "MIT",
+  "license": "The Programmer's University",
   "devDependencies": {
     "serve": "11.2.0"
   }
